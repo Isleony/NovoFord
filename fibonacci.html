@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo na Sequência de Fibonacci</title>
+</head>
+<body>
+    <script>
+       
+       do{
+        var proximo=0, anterior=0, atual=1, limite=0
+        limite=parseFloat(prompt("Digite quantos numerosquer no Fibonnaci"))
+        alert(atual)
+        for(var n=1;n1<limite;n++)
+       {
+            proximo=(anterior+atual)
+            alert(proximo)
+            anterior=atual
+            atual=proximo
+           
+        } resp=prompt("Digite s para gerar outra sequencia")
+
+    }while(resp=="s")
+           
+
+    </script>
+</body>
+</html>

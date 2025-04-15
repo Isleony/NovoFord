@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Número</title>
+</head>
+<body>
+    <script>
+        var n1, respon;
+        do {
+            respon = prompt("Digite 's' para verificar se seu número é par ou ímpar:");
+            if (respon === "s") {
+                n1 = parseInt(prompt("Digite o número para verificar se é par ou ímpar: "));
+                if (!isNaN(n1)) { // Verifica se o valor inserido é realmente um número
+                    if (n1 % 2 == 0) {
+                        alert("O número é par.");
+                        break
+                    } else {
+                        alert("O número é ímpar.");
+                        break
+                    }
+                } else {
+                    alert("Por favor, insira um número válido.");
+                }
+            }
+        } while (respon === "s");
+    </script>
+</body>
+</html>

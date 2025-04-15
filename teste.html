@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <script>
+        var n1, n2, resp, respon;
+        do {
+            n1 = parseFloat(prompt("Digite o primeiro número: "));
+            n2 = parseFloat(prompt("Digite o segundo número: "));
+            resp = parseInt(prompt("Digite 1- soma\nDigite 2- para subtração\nDigite 3- para divisão\nDigite 4- para multiplicação"));
+
+            switch(resp) {
+                case 1: 
+                    alert("A soma dos dois números é: " + (n1 + n2));
+                    break;
+                case 2: 
+                    alert("A subtração dos dois números é: " + (n1 - n2));
+                    break;
+                case 3:
+                    if (n2 == 0) {
+                        alert("Número inválido para operação");
+                    } else {
+                        alert("A divisão dos números é: " + (n1 / n2));
+                    }
+                    break;
+                case 4:
+                    alert("A multiplicação dos números é: " + (n1 * n2));
+                    break;
+                default:
+                    alert("Opção inválida");
+            }
+            respon = prompt("Digite 's' para repetir");
+        } while (respon == "s");
+    </script>
+</body>
+</html>

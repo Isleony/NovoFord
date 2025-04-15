@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n1,n2, op, respon
+        respon=prompt("Digite s para realizar calculas matematicos")
+      do{
+            n1=parseFloat(prompt("Digite o primeiro numero: "))
+            n2=parseFloat(prompt("Digite o segundo numero: "))
+            op=parseFloat(prompt("Digite 1- soma\nDigite2- para subtracao\nDigite 3-para divisao\n.Digite 4-para multiplicacao"))
+            switch(op){
+                case 1: 
+                alert("A soma dos dois numeros e: " +(n1+n2))
+                break
+                case 2: 
+                alert("A subtração dos dois numeros e: " +(n1-n2))
+                break
+                case 3:
+                    if(n2==0)
+                    alert("Numero invalido para operacao")
+                else
+                alert(" A divisao dos numeros e: "(n1 / n2))
+                break
+                case 4:
+                alert(" A multiplicacao dos numeros e: "(n1*n2))
+
+            }
+            respon=prompt("Digite s para repetir")
+        }  while(respon=="s")
+    </script>
+</body>
+</html>
