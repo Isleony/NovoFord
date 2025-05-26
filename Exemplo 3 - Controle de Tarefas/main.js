@@ -56,12 +56,14 @@ let acceptData = () => {
     })
     localStorage.setItem("data", JSON.stringify(data))
     console.log(data)
+    createTasks()
+    
 
 }
 
 let createTasks = () => {   //método 
     tasks.innerHTML = "",
-        data.map((x, y)) => {
+        data.map((x, y) => {
     return (tasks.innerHTML += `
             <div id=${y}>
             <span class="fw-bold">${x.text}</span>  
@@ -70,13 +72,28 @@ let createTasks = () => {   //método
 
             <span class="options">
             <i onClick="editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
+             <i onClick="deleteTask(this)"; creatTask()" class="fas fa-trash-alt"></i>
+            
             </span>
             </div>
             
 
             `) //é uma propriedade do JavaScript usada para acessar ou modificar o conteúdo HTML dentro de um elemento
-}// <span class="fw-bold">${x.text}</span>: O texto armazenado em x.text será exibido dentro de um <span>, e a classe "fw-bold" aplica o estilo de negrito ao texto.
-}//span ->texto de unica linha
+})
+resetForm()
+
+
+
+}
+
+let resetForm = () => {
+    textInput.value=""
+    dateInput.value=""
+    textarea.value=""
+}
+
+// <span class="fw-bold">${x.text}</span>: O texto armazenado em x.text será exibido dentro de um <span>, e a classe "fw-bold" aplica o estilo de negrito ao texto.
+//span ->texto de unica linha
 //p ->mais de uma linha ->textArea
 //options - > icones aqui
 //localStorage.setItem("data", JSON.stringify(data)): Aqui, os dados armazenados na variável data são convertidos em uma string JSON usando JSON.stringify(data) e, em seguida, são armazenados no localStorage com a chave "data". O localStorage permite que os dados sejam salvos no navegador de forma persistente, ou seja, mesmo que a página seja recarregada, os dados continuarão armazenados.
