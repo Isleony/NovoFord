@@ -1,17 +1,4 @@
-import express from 'express';
-const app = express();
-const port = 3000;
 
-app.use(express.static('public')); // Certifique-se de que o HTML e JS estão na pasta 'public'npm install express
-
-
-app.get('/', (_req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
-
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
 
 
 let form = document.querySelector('#form')
@@ -57,14 +44,14 @@ let acceptData = () => {
     localStorage.setItem("data", JSON.stringify(data))
     console.log(data)
     createTasks()
-    
+
 
 }
 
 let createTasks = () => {   //método 
     tasks.innerHTML = "",
         data.map((x, y) => {
-    return (tasks.innerHTML += `
+            return (tasks.innerHTML += `
             <div id=${y}>
             <span class="fw-bold">${x.text}</span>  
             <span class="small text-secondary">${x.date}</span>
@@ -78,20 +65,20 @@ let createTasks = () => {   //método
             </div>
             
 
-            `) //é uma propriedade do JavaScript usada para acessar ou modificar o conteúdo HTML dentro de um elemento
-})
-resetForm()
+            `) 
+        })
+    resetForm()
 
 
 
 }
 
 let resetForm = () => {
-    textInput.value=""
-    dateInput.value=""
-    textarea.value=""
+    textInput.value = ""
+    dateInput.value = ""
+    textarea.value = ""
 }
-
+//é uma propriedade do JavaScript usada para acessar ou modificar o conteúdo HTML dentro de um elemento
 // <span class="fw-bold">${x.text}</span>: O texto armazenado em x.text será exibido dentro de um <span>, e a classe "fw-bold" aplica o estilo de negrito ao texto.
 //span ->texto de unica linha
 //p ->mais de uma linha ->textArea
