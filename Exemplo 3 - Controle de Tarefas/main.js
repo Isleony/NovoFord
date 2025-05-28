@@ -1,6 +1,3 @@
-
-
-
 let form = document.querySelector('#form')
 let textInput = document.querySelector('#textInput')
 let dateInput = document.querySelector('#dateInput')
@@ -35,6 +32,12 @@ let formValidation = () => {
 
 let data = []
 
+// Carregar dados do localStorage ao iniciar
+window.addEventListener("load", () => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
+    createTasks();
+});
+
 let acceptData = () => {
     data.push({
         text: textInput.value,
@@ -44,33 +47,27 @@ let acceptData = () => {
     localStorage.setItem("data", JSON.stringify(data))
     console.log(data)
     createTasks()
-
-
 }
 
-let createTasks = () => {   //método 
-    tasks.innerHTML = "",
-        data.map((x, y) => {
-            return (tasks.innerHTML += `
-            <div id=${y}>
+let createTasks = () => {   
+    tasks.innerHTML = "";  // Corrigido: Limpa corretamente o conteúdo de tarefas antes de adicionar novas
+
+    data.map((x, y) => {
+        return (tasks.innerHTML += `
+            <div id="${y}">
             <span class="fw-bold">${x.text}</span>  
             <span class="small text-secondary">${x.date}</span>
             <p>${x.description}</p>
 
             <span class="options">
             <i onClick="editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fas fa-edit"></i>
-             <i onClick="deleteTask(this)"; creatTask()" class="fas fa-trash-alt"></i>
-            
+            <i onClick="deleteTask(this); createTasks()" class="fas fa-trash-alt"></i>
             </span>
             </div>
-            
-
-            `) 
-        })
+        `)
+    })
+    
     resetForm()
-
-
-
 }
 
 let resetForm = () => {
@@ -78,11 +75,20 @@ let resetForm = () => {
     dateInput.value = ""
     textarea.value = ""
 }
-//é uma propriedade do JavaScript usada para acessar ou modificar o conteúdo HTML dentro de um elemento
-// <span class="fw-bold">${x.text}</span>: O texto armazenado em x.text será exibido dentro de um <span>, e a classe "fw-bold" aplica o estilo de negrito ao texto.
-//span ->texto de unica linha
-//p ->mais de uma linha ->textArea
-//options - > icones aqui
-//localStorage.setItem("data", JSON.stringify(data)): Aqui, os dados armazenados na variável data são convertidos em uma string JSON usando JSON.stringify(data) e, em seguida, são armazenados no localStorage com a chave "data". O localStorage permite que os dados sejam salvos no navegador de forma persistente, ou seja, mesmo que a página seja recarregada, os dados continuarão armazenados.
 
-//console.log(data): Isso imprime o conteúdo da variável data no console do navegador, ajudando a visualizar os dados que estão sendo armazenados.
+let deleteTask = (e) => {
+    e.parentElement.parentElement.remove()
+    data.splice(e.parentElement.parentElement.id, 1)
+    localStorage.setItem("data", JSON.stringify(data))
+    console.log(data)
+}
+
+// Corrigido: Agora também atualiza a descrição ao editar
+let editTask = (e) => {
+    let selectedTask = e.parentElement.parentElement;
+    textInput.value = selectedTask.children[0].innerHTML;
+    dateInput.value = selectedTask.children[1].innerHTML;
+    textarea.value = selectedTask.children[2].innerHTML;
+}
+
+//(e) é o elemento
