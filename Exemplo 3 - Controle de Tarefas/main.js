@@ -1,4 +1,4 @@
-const form = document.querySelector('#form'); // form passa a ser a div com o id #form, ao invés do elemento, seguindo a convenção do Boostrap
+const form = document.querySelector('#form'); 
 const modal = bootstrap.Modal.getOrCreateInstance(form);
 const textInput = document.querySelector('#textInput');
 const dateInput = document.querySelector('#dateInput');
@@ -7,7 +7,6 @@ const msg = document.querySelector('#msg');
 const tasks = document.querySelector('#tasks');
 const add = document.querySelector('#add');
 
-/* Alterando o comportamento do addEventListener, já que a tag form agora é div */
 add.addEventListener("click", (e) => {
     modal.show();
     console.log("Botao clicado");
@@ -23,17 +22,6 @@ const formValidation = () => {
         console.log("sucesso");
         msg.innerHTML = "";
         acceptData();
-
-        // Esse trecho adiciona o atributo, clica e remove o atributo de forma muito rápida para poder funcionar, dá pau...
-
-        /* add.setAttribute("data-bs-dismiss","modal")
-        add.click(); */
-
-        /* (() => {
-            add.setAttribute("data-bs-dismiss", "")
-        }) (); */
-
-        // Ao invés disso, usamos um método da classe Modal do Bootstrap
         console.log(modal);
         modal.hide();
     }
