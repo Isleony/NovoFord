@@ -8,7 +8,7 @@ let tasks = document.querySelector('#tarefas');
 let add = document.querySelector('#adicionar'); // Corrigido o ID
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    modal.show();
     console.log("Botão clicado!");
     formValidation();
 });
