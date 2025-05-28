@@ -12,15 +12,15 @@
 <body>
     <div class="app">
         <h4 class="mb-3">App de tarefas</h4>
-
-        <!-- Botão para abrir o modal -->
-        <button id="addNew" data-bs-toggle="modal" data-bs-target="#formModal" class="btn btn-primary">
+       
+        <div id="addNew" data-bs-toggle="modal" data-bs-target="#formModal" class="btn btn-primary">
             <span>Adicionar nova tarefa</span>
             <i class="fas fa-plus"></i>
-        </button>
-
+        <div>
         <h5 class="text-center my-3">Tarefas</h5>
-        <div id="tarefas"></div>
+        <div id="tarefas">
+        </div>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
