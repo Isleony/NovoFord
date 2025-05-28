@@ -4,7 +4,7 @@ let textInput = document.querySelector('#textInput');
 let dateInput = document.querySelector('#dateInput');
 let textarea = document.querySelector('#textArea');
 let msg = document.querySelector('#msg');
-let tasks = document.querySelector('#tarefas');
+let tasks = document.querySelector('#tasks');
 let add = document.querySelector('#adicionar'); // Corrigido o ID
 
 form.addEventListener("submit", (e) => {
@@ -22,10 +22,8 @@ let formValidation = () => {
         msg.innerHTML = "";
         acceptData();
         
-        // Fecha o modal corretamente
-        let modal = document.querySelector("#formModal"); 
-        let bsModal = bootstrap.Modal.getInstance(modal); 
-        bsModal.hide();
+        console.log(modal);
+        modal.hide();
     }
 }
 
