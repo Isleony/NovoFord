@@ -1,4 +1,5 @@
 let form = document.querySelector('#form');
+const modal = bootstrap.Modal.getOrCreateInstance(form)
 let textInput = document.querySelector('#textInput');
 let dateInput = document.querySelector('#dateInput');
 let textarea = document.querySelector('#textArea');
